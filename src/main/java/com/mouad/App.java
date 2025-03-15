@@ -13,8 +13,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        IDao dao = new DaoImpl();
-        IMetier metier = new MetierImpl(dao);
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        IMetier metier = (IMetier) context.getBean("metier");
         System.out.println("Résultat : " + metier.calcul());
     }
 }
