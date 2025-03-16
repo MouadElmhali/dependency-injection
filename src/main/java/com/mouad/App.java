@@ -1,20 +1,17 @@
 package com.mouad;
 
-import com.mouad.dao.DaoImpl;
-import com.mouad.dao.IDao;
-import com.mouad.metier.IMetier;
-import com.mouad.metier.MetierImpl;
 
-/**
- * Hello world!
- *
- */
+import com.mouad.metier.IMetier;
+
+
+@Configuration
+@ComponentScan(basePackages = "com.mouad")
 public class App 
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        IMetier metier = (IMetier) context.getBean("metier");
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        IMetier metier = context.getBean(IMetier.class);
         System.out.println("Résultat : " + metier.calcul());
     }
 }

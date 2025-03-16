@@ -2,6 +2,7 @@ package com.mouad.metier;
 
 import com.mouad.dao.IDao;
 
+@Component
 public class MetierImpl implements IMetier{
 
     private IDao dao;
